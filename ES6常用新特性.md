@@ -172,7 +172,7 @@ $("#result").append(`
 //用反引号`来标识起始，用${}来引用变量，而且所有的空格和缩进都会被保留在输出之中
 ```
 
-<h2>扩展运算符`...`操作数组</h2>
+<h2>扩展运算符"..."操作数组</h2>
 
 * 拷贝数组
 
@@ -206,4 +206,46 @@ function concatenateAll(...args) {
 }
 ```
 
-http://www.jianshu.com/p/ebfeb687eb70
+<h2>Module模块</h2>
+
+* export输出变量、函数或类(class)
+
+```
+//profile.js
+const A = 9;
+function multiply(x, y) {
+  return x * y;
+};
+
+export {
+  A,
+  multiply as mul
+};
+//as用于重命名
+```
+
+* import静态加载模块
+
+```
+import{A as a,mul} from './profile';
+mul(a,8);
+```
+
+* import()动态加载模块
+
+```
+if (condition) {
+  import('./module1.js').then(...);
+} else {
+  import('./module2.js').then(...);
+}
+```
+
+* 引号的使用
+
+```
+const a = 'haha';  //静态字符串使用单引号
+const b = `ha${a}ha`;  //动态字符串使用反引号
+```
+
+参考地址：http://www.jianshu.com/p/ebfeb687eb70
